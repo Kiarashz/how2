@@ -1,4 +1,4 @@
-### Some settings that normally needed after OS installation.
+### Repo to store settings that normally needed after OS installation
 
 #### OpenSSL commands to create certificates
     # Create CA certificate and key
@@ -23,3 +23,6 @@
     -CA cacert.pem -CAkey private/cakey.pem \
     -CAcreateserial -out example.com.crt \
     -days 500 -sha256 -extfile example.com.ext
+
+# GNome swithc to windows on the same workspace only
+gsettings set org.gnome.shell.app-switcher current-workspace-only true
