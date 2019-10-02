@@ -23,6 +23,9 @@
     -CA cacert.pem -CAkey private/cakey.pem \
     -CAcreateserial -out example.com.crt \
     -days 500 -sha256 -extfile example.com.ext
+    
+# Open SSL Convert
+openssl x509 -inform DER -in ssl_certificate.cer -out ssl_certificate.cr
 
 # GNome swithc to windows on the same workspace only
 gsettings set org.gnome.shell.app-switcher current-workspace-only true
