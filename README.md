@@ -31,5 +31,9 @@ openssl x509 -inform DER -in ssl_certificate.cer -out ssl_certificate.cr
 gsettings set org.gnome.shell.app-switcher current-workspace-only true
 
 
-# update java CACerts
+# Update java CACerts
 keytool -import -noprompt -cacerts -storepass changeit -alias alias-for-self-generated-ca-cert -file /path/to/ca.der.or.cer.file
+
+# Install packages on Debian using not-very-well-mirrored repository
+apt --allow-unauthenticated --allow-insecure-repositories update 
+apt install -y --allow-unauthenticated
