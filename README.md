@@ -29,3 +29,7 @@ openssl x509 -inform DER -in ssl_certificate.cer -out ssl_certificate.cr
 
 # GNome swithc to windows on the same workspace only
 gsettings set org.gnome.shell.app-switcher current-workspace-only true
+
+
+# update java CACerts
+keytool -import -noprompt -cacerts -storepass changeit -alias alias-for-self-generated-ca-cert -file /path/to/ca.der.or.cer.file
