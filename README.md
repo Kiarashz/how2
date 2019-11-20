@@ -26,6 +26,7 @@
     
 # Open SSL Convert
 openssl x509 -inform DER -in ssl_certificate.cer -out ssl_certificate.cr
+openssl pkcs12 -export -out my-cert-and-key.pfx -inkey key.pem -in cert.pem --passin pass:changeit --passout pass:changeit -name "alias to be set in here"
 
 # GNome swithc to windows on the same workspace only
 gsettings set org.gnome.shell.app-switcher current-workspace-only true
