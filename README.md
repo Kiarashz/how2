@@ -25,16 +25,16 @@
     -days 500 -sha256 -extfile example.com.ext
     
 # Open SSL Convert
-openssl x509 -inform DER -in ssl_certificate.cer -out ssl_certificate.cr
-openssl pkcs12 -export -out my-cert-and-key.pfx -inkey key.pem -in cert.pem --passin pass:changeit --passout pass:changeit -name "alias to be set in here"
+    openssl x509 -inform DER -in ssl_certificate.cer -out ssl_certificate.cr
+    openssl pkcs12 -export -out my-cert-and-key.pfx -inkey key.pem -in cert.pem --passin pass:changeit --passout pass:changeit -name "alias to be set in here"
 
 # GNome swithc to windows on the same workspace only
-gsettings set org.gnome.shell.app-switcher current-workspace-only true
+    gsettings set org.gnome.shell.app-switcher current-workspace-only true
 
 
 # Update java CACerts
-keytool -import -noprompt -cacerts -storepass changeit -alias alias-for-self-generated-ca-cert -file /path/to/ca.der.or.cer.file
+    keytool -import -noprompt -cacerts -storepass changeit -alias alias-for-self-generated-ca-cert -file /path/to/ca.der.or.cer.file
 
 # Install packages on Debian using not-very-well-mirrored repository
-apt --allow-unauthenticated --allow-insecure-repositories update 
-apt install -y --allow-unauthenticated
+    apt --allow-unauthenticated --allow-insecure-repositories update 
+    apt install -y --allow-unauthenticated
