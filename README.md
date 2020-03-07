@@ -30,6 +30,8 @@
     openssl pkcs7 -inform der -in a.p7b -out a.cer
     openssl pkcs7 -inform der -in a.p7b -print_certs -out a.pem
     
+    openssl x509 -inform der -in cert.crt -out cert.pem
+    
     # convert Windows CRL to PEM
     openssl crl -in your_current.crl -inform DER -out crl.pem
     # view text content
