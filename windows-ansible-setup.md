@@ -4,7 +4,8 @@ For more information have a look at the following links:
 1. https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html
 
 Check current winrm configuration
-   winrm enumerate winrm/config/listener
+
+    winrm enumerate winrm/config/listener
  
 To start you need to have the host certificate/key signed by CA and imported into the server (into personal folder).
  
