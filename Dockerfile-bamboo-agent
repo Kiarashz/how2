@@ -1,0 +1,32 @@
+FROM atlassian/bamboo-agent-base
+USER root
+
+COPY private_ca /usr/share/ca-certificates/private_ca
+RUN echo "private_ca/ca01.pem" >> /etc/ca-certificates.conf && \
+echo "private_ca/ca02.pem" >> /etc/ca-certificates.conf && \
+update-ca-certificates
+
+RUN export DEBIAN_FRONTEND=noninteractive && \
+    apt-get update && \
+    apt-get install -y git ansible sudo kdiff3 vim yamllint git sshpass krb5-user krb5-kdc python3-pip python-dev libkrb5-dev tmux jq wget curl unzip zip && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY --chown=root:root krb5.conf /etc/krb5.conf
+
+RUN apt-get update && \
+    apt-get install -y python3-winrm && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install PowerShell
+RUN wget -q https://github.com/PowerShell/PowerShell/releases/download/v7.0.0/powershell_7.0.0-1.ubuntu.18.04_amd64.deb -O /root/powershell_7.0.0-1.ubuntu.18.04_amd64.deb && \
+    apt update && \
+    apt install -y apt-utils && \
+    apt install -y krb5-locales libgssapi-krb5-2 libicu60 libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 liblttng-ust-ctl4 liblttng-ust0 libssl1.0.0 liburcu6 && \
+    dpkg -i /root/powershell_7.0.0-1.ubuntu.18.04_amd64.deb || \
+    apt-get install -y -f && \
+    rm -rf /var/lib/apt/lists/*
+
+USER ${BAMBOO_USER}
+RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.builder.ansible.Ansible 2.9" ansible
+RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.git.executable" /usr/bin/git
+RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.builder.powershell.PowerShell" pwsh
