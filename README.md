@@ -48,3 +48,7 @@
 # Install packages on Debian using not-very-well-mirrored repository
     apt --allow-unauthenticated --allow-insecure-repositories update 
     apt install -y --allow-unauthenticated
+# Configure PIP for private CA and mirrored Pypi
+    pip3 config set global.cert my-ca-chain.pem 
+    pip3 config set global.index-url https://my-mirrored-repository/simple 
+    pip3 config set global.timeout 90 
