@@ -1,3 +1,6 @@
+# multi branch pipeline trigger from GHE
+# https://jenkins.example.com/git/notifyCommit?url=git@github.example.com:MyTeam/myCodeRepo.git
+
 def allowedBranches4AutoDeloy = ['master']
 def nullBranchOption = "Select branch name or git tag"
 def nullDockerImageTag = "Select Docker image tag to deploy"
