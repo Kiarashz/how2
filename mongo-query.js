@@ -24,3 +24,19 @@ appUsers.forEach(function (aUser) {
     }
 });
 print('done!!!!!!!!!!!!')
+
+
+dbURI='mongodb://myname%40SERVER.COM@db1.server.com,db2.server.com,db3.server.com/dbName?replicaSet=myReplica&authMechanism=GSSAPI&authSource=$external'
+mongoexport \
+--ssl \
+--sslAllowInvalidHostnames \
+--uri $dbURI \
+--collection=users \
+--type=csv \
+--fields=uid,firstName,lastName,lastLoginTime,applications \
+--out=my-users.csv \
+--query='{"uid":
+    {"$in":
+        ["123ABC","456DEF"]
+    }
+}'
