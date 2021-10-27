@@ -17,7 +17,7 @@ https://docs.microsoft.com/en-us/visualstudio/install/create-an-offline-installa
 --layout c:\vslayout
 ```
 
-So to install run the following commands:
+So to install run the following command:
 
 
 ```
