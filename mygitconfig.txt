@@ -1,0 +1,20 @@
+$ cat ~/.gitconfig
+[user]
+        name = my full name
+        email = my email address
+[credential]
+        helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-wincred.exe
+[alias]
+        st = status
+[core]
+        editor = vim
+[merge]
+[http]
+        proxy = http://myname@proxy.company.com:80/
+[mergetool "kdiff3"]
+        trustExitCode = false
+[merge]
+        tool = kdiff3
+==============================
+$ ls -l ~/bin/kdiff3
+lrwxrwxrwx 1 kiarash kiarash 38 Apr  5 12:47 /home/kiarash/bin/kdiff3 -> '/mnt/c/Program Files/KDiff3/kdiff3.exe'
