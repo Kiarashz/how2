@@ -1,0 +1,2 @@
+mvn org.apache.maven.plugins:maven-dependency-plugin:3.3.0:get -Dartifact=org.apache.spark:hadoop-cloud_2.12:3.3.0 -DremoteRepositories=myrepo::::https://repository.cloudera.com/artifactory/
+cloudera-repos/
