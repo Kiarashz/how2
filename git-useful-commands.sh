@@ -14,4 +14,4 @@ $ git name-rev --name-only --exclude=tags/*  11111111111111111111111111111111111
 remotes/origin/BRANCH-WHERE-COMMIT-WAS-MADE
 
 # search for a code pattern in branches
-for branch in $(git branch); do git grep --max-depth -1 -i 're\.sub.*/' $branch -- ':(exclude)*.js'; done
+git grep  -i 're\.sub.*/'  $(git show-ref -s --heads) -- ':(exclude)*.js'
