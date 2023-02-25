@@ -1,3 +1,5 @@
+# Add the following to your .bashrc
+
 # get current branch in git repo
 function parse_git_branch() {
 	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
@@ -45,4 +47,4 @@ function parse_git_dirty {
 	fi
 }
 
-export PS1="\u\[\e[36m\]@\[\e[m\]\h \[\e[33m\]\w\[\e[m\] \[\e[36m\]\`parse_git_branch\`\[\e[m\]\n\\$ "
+export PS1="\[\e[30;46m\]\d\[\e[m\] \[\e[42m\]\A\[\e[m\] \[\e[30;43m\]\W\[\e[m\] \[\e[30;45m\]\`parse_git_branch\`\[\e[m\] "
