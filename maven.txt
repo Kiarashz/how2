@@ -1,2 +1,4 @@
 mvn org.apache.maven.plugins:maven-dependency-plugin:3.3.0:get -Dartifact=org.apache.spark:hadoop-cloud_2.12:3.3.0 -DremoteRepositories=myrepo::::https://repository.cloudera.com/artifactory/
 cloudera-repos/
+
+mvn dependency:copy -Dartifact=org.apache.spark:spark-sql-kafka-0-10_2.13:3.3.2 -DoutputDirectory=.
