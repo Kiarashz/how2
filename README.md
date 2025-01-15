@@ -1,4 +1,26 @@
-### Repo to store settings that normally needed after OS installation
+### Useful commands
+
+#### Using GPG to share secrets
+```
+# Install GPG (sender and Recipient) 
+sudo apt install gnupg 
+ 
+# Generate key (Recipient) 
+gpg --full-generate-key 
+ 
+# Export public Key (Recipient) 
+gpg --armor --export your.email@example.com > public-key.asc 
+
+# Import the public key (sender) 
+gpg --import public-key.asc 
+
+# Encrypt the secret (sender) 
+echo "your-secret-password" > password.txt 
+gpg --armor --encrypt --recipient Recipient@example.com password.txt 
+
+# Decrypt the secret (Recipient) 
+gpg --decrypt password.txt.asc
+```
 
 #### OpenSSL commands to create certificates
     # Create CA certificate and key
