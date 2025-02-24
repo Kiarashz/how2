@@ -11,8 +11,13 @@ serviceAccount:
   name: "gitlab-gke-runner"
 ```
 
-# how to install:
+# How to install:
 ```
 helm repo add gitlab https://charts.gitlab.io
 helm install --namespace gitlab-runners --create-namespace my-gke-runner -f gitlab-kube-runner.yaml gitlab/gitlab-runner
 ```
+
+# Helpful links
+1. https://docs.gitlab.com/runner/install/kubernetes/
+2. https://docs.gitlab.com/user/packages/container_registry/build_and_push_images/
+3. https://docs.gitlab.com/ci/docker/using_docker_build/
