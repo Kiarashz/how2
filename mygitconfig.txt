@@ -8,7 +8,6 @@ $ cat ~/.gitconfig
         st = status
 [core]
         editor = vim
-[merge]
 [http]
         proxy = http://myname@proxy.company.com:80/
 [mergetool "kdiff3"]
