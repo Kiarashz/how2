@@ -1,5 +1,3 @@
-# Add the following to your .bashrc
-
 # get current branch in git repo
 function parse_git_branch() {
 	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
@@ -47,4 +45,17 @@ function parse_git_dirty {
 	fi
 }
 
-export PS1="\[\e[30;46m\]\d\[\e[m\] \[\e[42m\]\A\[\e[m\] \[\e[30;43m\]\W\[\e[m\] \[\e[30;45m\]\`parse_git_branch\`\[\e[m\] "
+# NEW: get current AWS profile
+function parse_aws_profile() {
+    if [ ! -z "${AWS_DEFAULT_PROFILE}" ]; then
+        echo " ☁️  ${AWS_DEFAULT_PROFILE} "
+    elif [ ! -z "${AWS_PROFILE}" ]; then
+        # Supporting both AWS_DEFAULT_PROFILE and AWS_PROFILE
+        echo " ☁️  ${AWS_PROFILE} "
+    else
+        echo ""
+    fi
+}
+
+# Updated PS1 with AWS profile information
+export PS1="\[\e[37;44m\] \h \[\e[m\] \[\e[30;46m\] \d \[\e[m\] \[\e[42m\] \A \[\e[m\] \[\e[30;43m\] \W \[\e[m\] \[\e[30;45m\] \`parse_git_branch\` \[\e[m\] \[\e[36;40m\]\`parse_aws_profile\`\[\e[m\]\n\$ "
